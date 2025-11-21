@@ -18,4 +18,8 @@ jobs:
         run: npm run build
       - name: List dist output
         run: ls dist/
+      - name : Lint
+        run: npm run Lint
+      - name: Jest
+        run: npm run test
     
