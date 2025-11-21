@@ -1,18 +1,21 @@
-name: Bonjour
+name: Vehicle Server CI
 on:
   - push
+  - pull_request
 jobs:
-  vehicle_server:
+  ci:
     runs-on: ubuntu-24.04
-    steps:  
-      - name : Checkout
-      - uses: actions/checkout@v5
-      - name: setup
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v5
+      - name: Setup Node
       - uses: actions/setup-node@v6
         with:
-          node-version: 24
-      - name: install dependencies
-        run: npm ci
-        name: build 
-      - run: npm run build
+          node-version: '22.x'
+      - name: Check Node Version
+        run: node --version
+      - name: Build application
+        run: npm run build
+      - name: List dist output
+        run: ls dist/
     
