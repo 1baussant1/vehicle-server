@@ -20,4 +20,6 @@ jobs:
         run: ls dist/
       - name : Lint
         run: npm run Lint
+      - name: Jest
+        run: npm run test
     
